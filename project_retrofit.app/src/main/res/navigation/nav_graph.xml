@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_graph"
+  app:startDestination="@id/splashScreen">
+
+  <fragment
+    android:id="@+id/loginFragment"
+    android:name="com.zoltanlorinczi.project_retrofit.fragment.LoginFragment"
+    android:label="LoginFragment"
+    tools:layout="@layout/fragment_login">
+
+    <action
+      android:id="@+id/action_loginFragment_to_listFragment"
+      app:destination="@id/listFragment"/>
+  </fragment>
+
+  <fragment
+    android:id="@+id/listFragment"
+    android:name="com.zoltanlorinczi.project_retrofit.fragment.TasksListFragment"
+    android:label="ListFragment"
+    tools:layout="@layout/fragment_tasks_list">
+    <action android:id="@+id/action_listFragment_to_taskFragment" app:destination="@id/taskFragment"/>
+    <action android:id="@+id/action_listFragment_to_myProfileFragment" app:destination="@id/myProfileFragment"/>
+    <action android:id="@+id/action_listFragment_to_newTaskFragment" app:destination="@id/newTaskFragment"/>
+  </fragment>
+  <fragment android:id="@+id/taskFragment" android:name="com.zoltanlorinczi.project_retrofit.fragment.TaskFragment"
+            android:label="fragment_task" tools:layout="@layout/fragment_task"/>
+  <fragment android:id="@+id/myProfileFragment"
+            android:name="com.zoltanlorinczi.project_retrofit.fragment.MyProfileFragment"
+            android:label="fragment_my_profile" tools:layout="@layout/fragment_my_profile"/>
+  <fragment android:id="@+id/newTaskFragment"
+            android:name="com.zoltanlorinczi.project_retrofit.fragment.NewTaskFragment"
+            android:label="fragment_new_task" tools:layout="@layout/fragment_new_task">
+    <action android:id="@+id/action_newTaskFragment_to_listFragment" app:destination="@id/listFragment"/>
+  </fragment>
+  <fragment android:id="@+id/splashScreen" android:name="com.zoltanlorinczi.project_retrofit.fragment.SplashScreen"
+            android:label="fragment_splash_screen" tools:layout="@layout/fragment_splash_screen">
+    <action android:id="@+id/action_splashScreen_to_loginFragment" app:destination="@id/loginFragment"/>
+    <action android:id="@+id/action_splashScreen_to_listFragment" app:destination="@id/listFragment"/>
+  </fragment>
+</navigation>

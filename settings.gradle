@@ -1,0 +1,2 @@
+include ':project_retrofit.app'
+rootProject.name = "project_retrofit"

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/activites.xml" value="0.252" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/homeicon.xml" value="0.2485" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/i_clogin.xml" value="0.2485" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_login.xml" value="0.2155" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_splash_screen__2_.xml" value="0.252" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_splashscreen.xml" value="0.1" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_untitled.xml" value="0.1" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/bottomnavigation.xml" value="0.2453125" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_my_profile.xml" value="0.17097264437689969" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_new_task.xml" value="0.2798913043478261" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_splash_screen.xml" value="0.11980749746707194" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_task.xml" value="0.25" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_tasks_list.xml" value="0.33" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/tasks_list_item.xml" value="0.1" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/toolbar.xml" value="0.2453125" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+</project>

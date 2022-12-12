@@ -1,0 +1,22 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.zoltanlorinczi.project_retrofit.fragment.TaskFragment">
+    <TextView
+            android:text="TextView"
+            android:layout_width="73dp"
+            android:layout_height="wrap_content" android:id="@+id/taskTitleDetail" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp" app:layout_constraintHorizontal_bias="0.224"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/TaskDescriptionDetail" tools:layout_editor_absoluteY="144dp"
+            tools:layout_editor_absoluteX="75dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/assignedDateDetail" tools:layout_editor_absoluteY="241dp"
+            tools:layout_editor_absoluteX="110dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
