@@ -1,5 +1,6 @@
 
 import com.zoltanlorinczi.project_retrofit.api.BackendConstants
+import com.zoltanlorinczi.project_retrofit.api.GroupApiService
 import com.zoltanlorinczi.project_retrofit.api.TaskApiService
 import com.zoltanlorinczi.project_retrofit.api.UserApiService
 import retrofit2.Retrofit
@@ -27,5 +28,8 @@ object RetrofitInstance {
     }
     val TASK_API_SERVICE:TaskApiService by lazy{
         retrofit.create(TaskApiService::class.java)
+    }
+    val GROUP_API_SERVICE:GroupApiService by lazy{
+        retrofit.create(GroupApiService::class.java)
     }
 }

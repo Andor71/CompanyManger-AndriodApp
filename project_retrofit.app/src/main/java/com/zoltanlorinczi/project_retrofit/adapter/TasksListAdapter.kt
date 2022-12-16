@@ -35,7 +35,7 @@ class TasksListAdapter(
             View.OnClickListener, View.OnLongClickListener {
 
         val taskAssigneeView: TextView = itemView.findViewById(R.id.task_assignee_view)
-        val taskTitleTextView: TextView = itemView.findViewById(R.id.task_title_view)
+        val taskTitleTextView: TextView = itemView.findViewById(R.id.userNameList)
         val taskDeadline: TextView = itemView.findViewById(R.id.task_deadline_view)
         val taskDescriptionTextView: TextView = itemView.findViewById(R.id.task_description_view)
         val taskPriorityTextView: TextView = itemView.findViewById(R.id.task_priority_view)

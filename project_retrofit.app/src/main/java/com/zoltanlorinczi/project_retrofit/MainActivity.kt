@@ -26,14 +26,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNav.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.item1 -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.myProfileFragment)
-                }
-                R.id.item2 -> {
+                R.id.tasks -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.listFragment)
                 }
-                R.id.item3 -> {
+                R.id.groups -> {
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.groupsListFragment)
+                }
+                R.id.activites -> {
 //                    findNavController(R.id.nav_host_fragment).navigate(R.id.myGroupsFragment)
+                }
+                R.id.settings ->{
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.settings);
                 }
                 else ->{
                     false

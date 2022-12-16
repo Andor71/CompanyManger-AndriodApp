@@ -1,9 +1,6 @@
 package com.zoltanlorinczi.project_retrofit.api
 
-import com.zoltanlorinczi.project_retrofit.api.model.LoginRequestBody
-import com.zoltanlorinczi.project_retrofit.api.model.LoginResponse
-import com.zoltanlorinczi.project_retrofit.api.model.TaskResponse
-import com.zoltanlorinczi.project_retrofit.api.model.UserResponse
+import com.zoltanlorinczi.project_retrofit.api.model.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,4 +23,6 @@ interface UserApiService {
 
     @GET(BackendConstants.GET_MY_USER)
     suspend fun getMyUser(@Header(BackendConstants.HEADER_TOKEN) token: String): Response<UserResponse>
+    @GET(BackendConstants.UPDATE_MY_USER)
+    suspend fun updateMyUser(token: String, userUpdateDto: UserUpdateDto): Response<Any>
 }

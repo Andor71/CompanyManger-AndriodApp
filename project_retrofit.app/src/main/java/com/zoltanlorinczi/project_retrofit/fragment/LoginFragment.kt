@@ -17,6 +17,7 @@ import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
 import com.zoltanlorinczi.project_retrofit.manager.SharedPreferencesManager
 import com.zoltanlorinczi.project_retrofit.viewmodel.LoginViewModel
 import com.zoltanlorinczi.project_retrofit.viewmodel.LoginViewModelFactory
+import com.zoltanlorinczi.project_retrofit.viewmodel.UsersViewModel
 
 /**
  * Author:  Zoltan Lorinczi
@@ -29,11 +30,15 @@ class LoginFragment : Fragment() {
     }
 
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var usersViewModel: UsersViewModel;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val factory = LoginViewModelFactory(ThreeTrackerRepository())
+        val factoryUser = LoginViewModelFactory(ThreeTrackerRepository())
         loginViewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
+        usersViewModel = ViewModelProvider(requireActivity(), factoryUser)[UsersViewModel::class.java]
+
     }
 
     override fun onCreateView(
@@ -48,8 +53,6 @@ class LoginFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-
-
         val userNameEditText: EditText = view.findViewById(R.id.edittext_name_login_fragment)
         val passwordEditText: EditText = view.findViewById(R.id.edittext_password_login_fragment)
         val button: Button = view.findViewById(R.id.button_login_fragment)
@@ -62,10 +65,6 @@ class LoginFragment : Fragment() {
             )
         )
 
-//        if(App.sharedPreferences.getStringValue(SharedPreferencesManager.KEY_TOKEN,"empty") != null){
-//            findNavController().navigate(R.id.action_loginFragment_to_listFragment)
-//        }
-
         button.setOnClickListener {
             val username = userNameEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -75,6 +74,7 @@ class LoginFragment : Fragment() {
             loginViewModel.isSuccessful.observe(this.viewLifecycleOwner) {
                 Log.d(TAG, "Logged in successfully = $it")
                 if (it) {
+                    usersViewModel.getMyUser();
                     findNavController().navigate(R.id.action_loginFragment_to_listFragment)
                 }
             }

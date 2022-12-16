@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.zoltanlorinczi.project_retrofit.App
 import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
 import com.zoltanlorinczi.project_retrofit.api.model.UserResponse
+import com.zoltanlorinczi.project_retrofit.api.model.UserUpdateDto
 import com.zoltanlorinczi.project_retrofit.manager.SharedPreferencesManager
 import kotlinx.coroutines.launch
 
@@ -18,9 +19,11 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
 
     var users: MutableLiveData<List<UserResponse>> = MutableLiveData()
     var currentUser: MutableLiveData<UserResponse> = MutableLiveData();
-    var currentUserID: Int = 0;
+    var loggedIn: MutableLiveData<Boolean> = MutableLiveData();
 
-
+    init {
+        getUsers();
+    }
     public fun getUsers(){
         viewModelScope.launch {
             try {
@@ -33,7 +36,9 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d("Response Get USer", "Get tasks response: ${response.message()}")
+                    Log.d("Response Get User", "Get tasks response: ${response.message()}")
+
+
                     val toast = Toast.makeText(App.context, "Fetched tasks", Toast.LENGTH_SHORT)
                     toast.show();
                     val tasksList = response.body()
@@ -41,6 +46,8 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                         users.value = tasksList
                     }
                 } else {
+
+
                     Log.d("Response Get USer", "Get tasks error response: ${response?.message()}")
                 }
 
@@ -61,14 +68,15 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d(UsersViewModel.TAG, "Get tasks response: ${response.body()}")
-
+                    Log.d("USER", "Get tasks response: ${response.body()}")
+                    loggedIn.value = true;
                     val user = response.body()
                     user?.let {
                         currentUser.value = user
                     }
                 } else {
-                    Log.d(UsersViewModel.TAG, "Get tasks error response: ${response?.errorBody()}")
+                    loggedIn.value = false;
+                    Log.d("USER", "Get tasks error response: ${response?.errorBody()}")
                 }
 
             } catch (e: Exception) {
@@ -76,6 +84,36 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
             }
         }
 
+    }
+    public fun updateMyProfile(userUpdateDto: UserUpdateDto){
+        viewModelScope.launch {
+            try {
+                val token: String? = App.sharedPreferences.getStringValue(
+                    SharedPreferencesManager.KEY_TOKEN,
+                    "Empty token!"
+                )
+                val response = token?.let {
+                    repository.updateMyUser(it,userUpdateDto);
+                }
+
+                if (response?.isSuccessful == true) {
+                    Log.d(UsersViewModel.TAG, "Get tasks response: ${response.body()}")
+                    val toast = Toast.makeText(App.context, "Profile updated succesfully!", Toast.LENGTH_SHORT)
+                    toast.show();
+//                    val user = response.body()
+//                    user?.let {
+//                        currentUser.value = user;
+//                    }
+                } else {
+                    val toast = Toast.makeText(App.context, "Error updating profile", Toast.LENGTH_SHORT)
+                    toast.show();
+                    Log.d(UsersViewModel.TAG, "Get tasks error response: ${response?.errorBody()}")
+                }
+
+            } catch (e: Exception) {
+                Log.d(UsersViewModel.TAG, "TasksViewModel - getTasks() failed with exception: ${e.message}")
+            }
+        }
     }
 
 }

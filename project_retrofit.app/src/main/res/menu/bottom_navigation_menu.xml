@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-            android:id="@+id/item1"
+            android:id="@+id/tasks"
             android:enabled="true"
-            android:title="MyProfile"
-            android:icon="@drawable/homeicon"/>
-    <item
-            android:id="@+id/item2"
-            android:enabled="true"
-            android:title="MyTasks"
+            android:title="Tasks"
             android:icon="@drawable/mytasks"/>
     <item
-            android:id="@+id/item3"
+            android:id="@+id/groups"
             android:enabled="true"
-            android:title="MyActivities"
+            android:title="Groups"
+            android:icon="@drawable/ic_group"/>
+    <item
+            android:id="@+id/activites"
+            android:enabled="true"
+            android:title="Activities"
             android:icon="@drawable/activites"/>
+    <item
+            android:id="@+id/settings"
+            android:enabled="true"
+            android:title="Settings"
+            android:icon="@drawable/ic_settings"/>
 </menu>
