@@ -25,6 +25,7 @@
     <action android:id="@+id/action_listFragment_to_newTaskFragment" app:destination="@id/newTaskFragment"/>
     <action android:id="@+id/action_listFragment_to_settings" app:destination="@id/settings"/>
     <action android:id="@+id/action_listFragment_to_groupsListFragment" app:destination="@id/groupsListFragment"/>
+    <action android:id="@+id/action_listFragment_to_activitesFragment" app:destination="@id/activitesFragment"/>
   </fragment>
   <fragment android:id="@+id/taskFragment" android:name="com.zoltanlorinczi.project_retrofit.fragment.TaskFragment"
             android:label="fragment_task" tools:layout="@layout/fragment_task"/>
@@ -57,4 +58,7 @@
   </fragment>
   <fragment android:id="@+id/groupFragment" android:name="com.zoltanlorinczi.project_retrofit.fragment.GroupFragment"
             android:label="fragment_group" tools:layout="@layout/fragment_group"/>
+  <fragment android:id="@+id/activitesFragment"
+            android:name="com.zoltanlorinczi.project_retrofit.fragment.ActivitesFragment"
+            android:label="fragment_activites" tools:layout="@layout/fragment_activites"/>
 </navigation>

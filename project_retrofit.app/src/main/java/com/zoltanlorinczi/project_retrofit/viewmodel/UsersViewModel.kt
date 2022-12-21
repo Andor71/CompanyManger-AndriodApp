@@ -19,6 +19,7 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
 
     var users: MutableLiveData<List<UserResponse>> = MutableLiveData()
     var currentUser: MutableLiveData<UserResponse> = MutableLiveData();
+    var myUser: MutableLiveData<UserResponse> = MutableLiveData();
     var loggedIn: MutableLiveData<Boolean> = MutableLiveData();
 
     init {
@@ -32,27 +33,28 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                     "Empty token!"
                 )
                 val response = token?.let {
+                    Log.i("Token",it);
                     repository.getUsers(it)
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d("Response Get User", "Get tasks response: ${response.message()}")
+                    Log.d("ResponseUser", "Get Users response: ${response.message()}")
 
-
-                    val toast = Toast.makeText(App.context, "Fetched tasks", Toast.LENGTH_SHORT)
+                    val toast = Toast.makeText(App.context, "Fetched Users", Toast.LENGTH_SHORT)
                     toast.show();
-                    val tasksList = response.body()
-                    tasksList?.let {
-                        users.value = tasksList
+                    val userList = response.body()
+                    userList?.let {
+                        users.value = userList
                     }
                 } else {
 
-
-                    Log.d("Response Get USer", "Get tasks error response: ${response?.message()}")
+                    val toast = Toast.makeText(App.context, "Cant Fetch Users", Toast.LENGTH_SHORT)
+                    toast.show();
+                    Log.d("ResponseUser", "Users Error Response : ${response?.message()}")
                 }
 
             } catch (e: Exception) {
-                Log.d(UsersViewModel.TAG, "TasksViewModel - getTasks() failed with exception: ${e.message}")
+                Log.d("ResponseUser", "UserViewmodel get users error: ${e.message}")
             }
         }
     }
@@ -68,11 +70,11 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d("USER", "Get tasks response: ${response.body()}")
+                    Log.d("USER", "Get MyUserResponse response: ${response.body()}")
                     loggedIn.value = true;
                     val user = response.body()
                     user?.let {
-                        currentUser.value = user
+                        myUser.value = user
                     }
                 } else {
                     loggedIn.value = false;

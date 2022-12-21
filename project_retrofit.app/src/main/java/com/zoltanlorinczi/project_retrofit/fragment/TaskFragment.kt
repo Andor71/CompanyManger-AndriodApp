@@ -1,5 +1,6 @@
 package com.zoltanlorinczi.project_retrofit.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,6 +17,8 @@ import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
 import com.zoltanlorinczi.project_retrofit.api.model.TaskResponse
 import com.zoltanlorinczi.project_retrofit.viewmodel.TasksViewModel
 import com.zoltanlorinczi.project_retrofit.viewmodel.TasksViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TaskFragment : Fragment(R.layout.fragment_task) {
@@ -43,9 +46,27 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
     }
 
     fun setProperties(){
-        binding.taskTitleDetail.text = task?.title;
-        binding.TaskDescriptionDetail.text = task?.description;
-        binding.assignedDateDetail.text = task?.createdTime.toString();
-
+        binding.taskNameText.text = task?.title;
+        binding.descriptionText.text = task?.description;
+        binding.assignedDateText.text =getDateTime(task?.createdTime!!);
+        if (task?.priority == 0) {
+            binding.priotityText.setBackgroundColor(Color.RED)
+            binding.priotityText.text = "HIGH";
+        } else if (task?.priority == 1) {
+            binding.priotityText.setBackgroundColor(Color.YELLOW)
+            binding.priotityText.text = "MEDIUM";
+        } else if (task?.priority == 2) {
+            binding.priotityText.setBackgroundColor(Color.GREEN)
+            binding.priotityText.text = "LOW";
+        }
+    }
+    fun getDateTime(s: Long): String {
+        try {
+            val sdf = SimpleDateFormat("MM/dd/yyyy")
+            val netDate = Date(s.toLong() * 1000)
+            return sdf.format(netDate)
+        } catch (e: Exception) {
+            return e.toString()
+        }
     }
 }

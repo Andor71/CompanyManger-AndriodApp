@@ -21,10 +21,7 @@ import com.zoltanlorinczi.project_retrofit.adapter.TasksListAdapter
 import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
 import com.zoltanlorinczi.project_retrofit.api.model.GroupResponse
 import com.zoltanlorinczi.project_retrofit.api.model.TaskResponse
-import com.zoltanlorinczi.project_retrofit.viewmodel.GroupViewModel
-import com.zoltanlorinczi.project_retrofit.viewmodel.GroupViewModelFactory
-import com.zoltanlorinczi.project_retrofit.viewmodel.TasksViewModel
-import com.zoltanlorinczi.project_retrofit.viewmodel.TasksViewModelFactory
+import com.zoltanlorinczi.project_retrofit.viewmodel.*
 
 /**
  * Author:  Zoltan Lorinczi
@@ -38,6 +35,7 @@ class GroupsListFragment : Fragment(R.layout.fragment_groups_list), GroupsListAd
     }
     private lateinit var binding: FragmentGroupsListBinding;
     private lateinit var groupViewModel: GroupViewModel;
+    private lateinit var userViewModel: UsersViewModel;
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: GroupsListAdapter
 
@@ -45,6 +43,8 @@ class GroupsListFragment : Fragment(R.layout.fragment_groups_list), GroupsListAd
         super.onCreate(savedInstanceState)
         val factory = GroupViewModelFactory(ThreeTrackerRepository())
         groupViewModel = ViewModelProvider(requireActivity(), factory)[GroupViewModel::class.java]
+        val factoryUser = UsersViewModelFactory(ThreeTrackerRepository());
+        userViewModel = ViewModelProvider(requireActivity(), factoryUser)[UsersViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -58,6 +58,8 @@ class GroupsListFragment : Fragment(R.layout.fragment_groups_list), GroupsListAd
         binding = FragmentGroupsListBinding.inflate(inflater);
         recyclerView = binding.recyclerViewGroup;
         setupRecyclerView()
+
+        userViewModel.getUsers();
 
         groupViewModel.groups.observe(viewLifecycleOwner) {
             Log.d(TAG, "Tasks list = $it")
@@ -82,7 +84,6 @@ class GroupsListFragment : Fragment(R.layout.fragment_groups_list), GroupsListAd
     }
 
     override fun onItemClick(position: Int) {
-
         groupViewModel.ID = position;
         findNavController().navigate(R.id.groupFragment);
     }

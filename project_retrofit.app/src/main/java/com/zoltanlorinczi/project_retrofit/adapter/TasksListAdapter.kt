@@ -6,9 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.zoltanlorinczi.project_retorfit.R
+import com.zoltanlorinczi.project_retrofit.App
+import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
 import com.zoltanlorinczi.project_retrofit.api.model.TaskResponse
+import com.zoltanlorinczi.project_retrofit.viewmodel.GroupViewModelFactory
+import com.zoltanlorinczi.project_retrofit.viewmodel.UsersViewModel
+import com.zoltanlorinczi.project_retrofit.viewmodel.UsersViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Author:  Zoltan Lorinczi
@@ -16,12 +26,13 @@ import com.zoltanlorinczi.project_retrofit.api.model.TaskResponse
  */
 class TasksListAdapter(
         private var list: ArrayList<TaskResponse>,
-        private val context: Context,
+        private val context: FragmentActivity,
         private val listener: OnItemClickListener,
         private val listener2: OnItemLongClickListener
 ) :
         RecyclerView.Adapter<TasksListAdapter.DataViewHolder>() {
 
+    private lateinit var usersViewModel: UsersViewModel;
     interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
@@ -61,6 +72,9 @@ class TasksListAdapter(
     // 2. Called only a few times = number of items on screen + a few more ones
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.tasks_list_item, parent, false)
+
+        val factory = UsersViewModelFactory(ThreeTrackerRepository())
+        usersViewModel = ViewModelProvider(context, factory)[UsersViewModel::class.java]
         return DataViewHolder(itemView)
     }
 
@@ -72,8 +86,7 @@ class TasksListAdapter(
         holder.taskTitleTextView.text = currentItem.title
         holder.taskDescriptionTextView.text = currentItem.description
         holder.taskAssigneeView.text = currentItem.assignedToUserID.toString()
-        holder.taskDeadline.text = currentItem.deadline.toString()
-
+        holder.taskDeadline.text = getDateTime(currentItem.deadline);
         if (currentItem.priority == 0) {
             holder.taskPriorityTextView.setBackgroundColor(Color.RED)
         } else if (currentItem.priority == 1) {
@@ -89,5 +102,15 @@ class TasksListAdapter(
     // Update the list
     fun setData(newList: ArrayList<TaskResponse>) {
         list = newList
+    }
+
+    fun getDateTime(s: Long): String? {
+        try {
+            val sdf = SimpleDateFormat("MM/dd/yyyy")
+            val netDate = Date(s.toLong() * 1000)
+            return sdf.format(netDate)
+        } catch (e: Exception) {
+            return e.toString()
+        }
     }
 }

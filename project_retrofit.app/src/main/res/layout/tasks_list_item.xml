@@ -11,7 +11,7 @@
         android:translationZ="4dp"
         app:cardCornerRadius="6dp"
         app:cardElevation="0dp"
-        android:backgroundTint="#ECF6F6" android:background="#F0F8F8">
+        android:backgroundTint="#B0C8F8" android:background="#6493F3">
 
     <!--<TextView
             android:id="@+id/task_project_view"
@@ -36,17 +36,40 @@
             app:layout_constraintHorizontal_bias="0.055" app:layout_constraintVertical_bias="0.561"/>
     <TextView
             android:id="@+id/task_deadline_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="date"
+            android:layout_width="92dp"
+            android:layout_height="19dp"
+            android:text="00/00/0000"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.561" app:layout_constraintHorizontal_bias="0.298"/>
+            app:layout_constraintVertical_bias="0.554" app:layout_constraintHorizontal_bias="0.306"/>
+    <TextView
+            android:id="@+id/task_deadline_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0% Done"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.956" app:layout_constraintHorizontal_bias="0.975"/>
     <TextView
             android:id="@+id/task_assignee_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pal Andor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.412" app:layout_constraintHorizontal_bias="0.287"
+            android:textColor="#000000"/>
+    <TextView
+            android:id="@+id/task_assignee_view2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Person ID"
@@ -55,7 +78,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.328" app:layout_constraintHorizontal_bias="0.289"/>
+            app:layout_constraintVertical_bias="0.285" app:layout_constraintHorizontal_bias="0.044"/>
     <TextView
             android:id="@+id/userNameList"
             android:layout_width="wrap_content"
@@ -66,8 +89,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.048"
-            app:layout_constraintVertical_bias="0.156"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintVertical_bias="0.125" android:textColor="#000000"/>
     <TextView
             android:id="@+id/task_description_view"
             android:layout_width="wrap_content"
@@ -78,7 +101,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.692" app:layout_constraintHorizontal_bias="0.054"/>
+            app:layout_constraintVertical_bias="0.692" app:layout_constraintHorizontal_bias="0.064"/>
     <TextView
             android:id="@+id/task_priority_view"
             android:layout_width="wrap_content"
@@ -88,10 +111,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="0.975"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.502"/>
+            app:layout_constraintVertical_bias="0.565" android:padding="5sp"/>
     <View
             android:id="@+id/divider"
             android:layout_width="409dp"
@@ -99,8 +122,8 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="108dp" android:layout_marginStart="1dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            android:layout_marginTop="124dp" android:layout_marginStart="1dp"
+            app:layout_constraintHorizontal_bias="0.071"/>
     <TextView
             android:text="Assignee:"
             android:layout_width="wrap_content"
@@ -108,6 +131,23 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.046" app:layout_constraintVertical_bias="0.328"/>
+            app:layout_constraintHorizontal_bias="0.044" app:layout_constraintVertical_bias="0.412"/>
+    <TextView
+            android:text="Dev project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/assignee2"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.049" app:layout_constraintVertical_bias="0.021"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar3"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:paddingBottom="0sp"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="240dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

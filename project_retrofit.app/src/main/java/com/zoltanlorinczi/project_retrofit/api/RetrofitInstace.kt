@@ -1,10 +1,8 @@
 
-import com.zoltanlorinczi.project_retrofit.api.BackendConstants
-import com.zoltanlorinczi.project_retrofit.api.GroupApiService
-import com.zoltanlorinczi.project_retrofit.api.TaskApiService
-import com.zoltanlorinczi.project_retrofit.api.UserApiService
+import com.zoltanlorinczi.project_retrofit.api.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 /**
  * Retrofit instance for network access.
@@ -31,5 +29,8 @@ object RetrofitInstance {
     }
     val GROUP_API_SERVICE:GroupApiService by lazy{
         retrofit.create(GroupApiService::class.java)
+    }
+    val ACTIVITY_API_SERIVCE:ActivityApiService by lazy {
+        retrofit.create(ActivityApiService::class.java)
     }
 }

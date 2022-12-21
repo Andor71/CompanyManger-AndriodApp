@@ -33,16 +33,12 @@ class SplashScreen : Fragment() {
 
         navBar?.visibility = View.GONE;
         Handler().postDelayed({
-            Log.i("SPL","Called");
             usersViewModel.getMyUser();
         },3000);
         usersViewModel.loggedIn.observe(viewLifecycleOwner, Observer{
-            Log.i("SPL","VALAMI")
             if(it == false){
-                Log.i("SPL","Null");
                 findNavController().navigate(R.id.action_splashScreen_to_loginFragment);
             }else{
-                Log.i("SPL","Not NUll");
                 findNavController().navigate(R.id.listFragment);
             }
         });

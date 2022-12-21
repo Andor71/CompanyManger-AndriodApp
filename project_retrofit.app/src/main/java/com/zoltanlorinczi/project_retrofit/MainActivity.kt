@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.groupsListFragment)
                 }
                 R.id.activites -> {
-//                    findNavController(R.id.nav_host_fragment).navigate(R.id.myGroupsFragment)
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.activitesFragment)
                 }
                 R.id.settings ->{
                     findNavController(R.id.nav_host_fragment).navigate(R.id.settings);

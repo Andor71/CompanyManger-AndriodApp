@@ -1,11 +1,12 @@
 package com.zoltanlorinczi.project_retrofit.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider.Factory
+import androidx.lifecycle.ViewModelProvider
 import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
 
-class TaskViewModelFactory(private val repository: ThreeTrackerRepository) : Factory {
+class ActivityViewModelFactory(private val repository: ThreeTrackerRepository) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return TaskViewModel(repository) as T;
+        return ActivityViewModel(repository) as T
     }
 }

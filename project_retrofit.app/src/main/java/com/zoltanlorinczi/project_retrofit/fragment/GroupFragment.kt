@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -14,17 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zoltanlorinczi.project_retorfit.R
 import com.zoltanlorinczi.project_retorfit.databinding.FragmentGroupBinding
-import com.zoltanlorinczi.project_retorfit.databinding.FragmentGroupsListBinding
-import com.zoltanlorinczi.project_retorfit.databinding.FragmentTasksListBinding
-import com.zoltanlorinczi.project_retorfit.databinding.GroupsListItemBinding
-import com.zoltanlorinczi.project_retrofit.adapter.GroupsListAdapter
-import com.zoltanlorinczi.project_retrofit.adapter.TasksListAdapter
+import com.zoltanlorinczi.project_retrofit.App
 import com.zoltanlorinczi.project_retrofit.adapter.UserListAdapter
 import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
-import com.zoltanlorinczi.project_retrofit.api.model.GroupResponse
-import com.zoltanlorinczi.project_retrofit.api.model.TaskResponse
 import com.zoltanlorinczi.project_retrofit.api.model.UserResponse
 import com.zoltanlorinczi.project_retrofit.viewmodel.*
+import java.util.Vector
 
 /**
  * Author:  Zoltan Lorinczi
@@ -41,6 +37,7 @@ class GroupFragment : Fragment(R.layout.fragment_group), UserListAdapter.OnItemC
     private lateinit var userViewModel: UsersViewModel;
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: UserListAdapter
+    private var currentUsers = ArrayList<UserResponse>();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,12 +59,16 @@ class GroupFragment : Fragment(R.layout.fragment_group), UserListAdapter.OnItemC
         recyclerView = binding.recyclerViewGroupUsers;
         setupRecyclerView()
 
-        var currentUsers =  mutableListOf<UserResponse>();
-
+        if(userViewModel.users.value != null){
         for (item in userViewModel.users.value!!) {
             if (item.department_id == groupViewModel.ID){
-                currentUsers.add(item);
+                currentUsers.add(item)
+                Log.i("Users",item.first_name)
             }
+        }
+        }else{
+            val toast = Toast.makeText(App.context, "No User Found", Toast.LENGTH_SHORT)
+            toast.show();
         }
 
         userViewModel.users.observe(viewLifecycleOwner) {
@@ -93,9 +94,8 @@ class GroupFragment : Fragment(R.layout.fragment_group), UserListAdapter.OnItemC
     }
 
     override fun onItemClick(position: Int) {
-
-//        groupViewModel.ID = position;
-//        findNavController().navigate(R.id.taskFragment);
+        userViewModel.currentUser.value = currentUsers[position];
+        findNavController().navigate(R.id.myProfileFragment);
     }
 
     override fun onItemLongClick(position: Int) {

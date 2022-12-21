@@ -4,14 +4,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:alwaysDrawnWithCache="false"
         android:layout_marginBottom="30sp"
         android:layout_margin="15dp"
         android:translationZ="4dp"
         app:cardCornerRadius="6dp"
         app:cardElevation="0dp"
-        android:backgroundTint="#B0C8F8" android:background="#B0C8F8">
+        android:backgroundTint="#505765" android:background="#B0C8F8">
 
     <!--<TextView
             android:id="@+id/task_project_view"
@@ -26,16 +26,16 @@
             app:layout_constraintHorizontal_bias="0.047" app:layout_constraintVertical_bias="0.114"/>-->
 
     <TextView
-            android:id="@+id/userNameList"
+            android:id="@+id/activitetaskName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GroupName"
+            android:text="Task"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintVertical_bias="0.506"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

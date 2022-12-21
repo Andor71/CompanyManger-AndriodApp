@@ -64,8 +64,7 @@ class UserListAdapter(
     // 3. Called many times, when we scroll the list
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         val currentItem = list[position]
-        holder.userListName.text = currentItem.first_name + currentItem.last_name;
-
+        holder.userListName.text = currentItem.first_name +" "+ currentItem.last_name;
     }
 
     override fun getItemCount() = list.size

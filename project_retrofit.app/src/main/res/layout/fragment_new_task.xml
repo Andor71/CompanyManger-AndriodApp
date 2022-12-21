@@ -1,78 +1,90 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.zoltanlorinczi.project_retrofit.fragment.NewTaskFragment">
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context="com.zoltanlorinczi.project_retrofit.fragment.NewTaskFragment"
+                                                   android:background="#F8F7F7">
 
 
     <EditText
-            android:layout_width="308dp"
+            android:layout_width="0dp"
             android:layout_height="62dp"
             android:inputType="text"
-            android:text="Task title"
             android:ems="10"
             android:id="@+id/taskTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495" app:layout_constraintTop_toBottomOf="@+id/createBtn"
-            android:layout_marginTop="8dp"/>
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/createBtn"
+            android:layout_marginTop="28dp" android:background="#FFFFFF" android:padding="5sp"
+            android:hint="Enter tastk title..." android:layout_marginEnd="54dp" android:layout_marginStart="54dp"
+            android:textAlignment="center"/>
     <EditText
-            android:layout_width="351dp"
-            android:layout_height="291dp"
+            android:layout_width="296dp"
+            android:layout_height="112dp"
             android:inputType="textMultiLine"
             android:gravity="start|top"
             android:ems="10"
             android:id="@+id/description"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="64dp"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" android:hint="Description"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="68dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" android:hint="Description"
+            android:background="#FFFFFF" android:padding="5sp" android:layout_marginEnd="54dp"
+            android:layout_marginStart="54dp" app:layout_constraintHorizontal_bias="0.0"/>
     <Spinner
-            android:layout_width="136dp"
-            android:layout_height="48dp" android:id="@+id/prioritySpinner"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="56dp"
-            tools:ignore="SpeakableTextPresentCheck" android:layout_marginTop="28dp"
-            app:layout_constraintTop_toBottomOf="@+id/taskTitle"/>
+            android:layout_width="0dp"
+            android:layout_height="48dp" android:id="@+id/assigneSpinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:background="#FFFFFF" android:padding="5sp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="54dp"
+            android:layout_marginEnd="54dp" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.294" android:textAlignment="center"/>
     <Spinner
-            android:layout_width="139dp"
-            android:layout_height="48dp" android:id="@+id/prioritySpinner2"
-            app:layout_constraintTop_toBottomOf="@+id/prioritySpinner"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="56dp" android:layout_marginTop="20dp"
-            tools:ignore="SpeakableTextPresentCheck"/>
-    <TextView
-            android:text="Priority"
-            android:layout_width="97dp"
-            android:layout_height="37dp" android:id="@+id/priorityText"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toStartOf="@+id/prioritySpinner"
-            app:layout_constraintHorizontal_bias="0.385" app:layout_constraintTop_toBottomOf="@+id/taskTitle"
-            android:layout_marginTop="28dp" android:textAlignment="center" android:textSize="24sp"/>
-    <TextView
-            android:text="Assigneto:"
-            android:layout_width="97dp"
-            android:layout_height="37dp" android:id="@+id/assigneeToText"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toStartOf="@+id/prioritySpinner2"
-            app:layout_constraintHorizontal_bias="0.394" app:layout_constraintTop_toBottomOf="@+id/priorityText"
-            android:textAlignment="center" android:textSize="24sp" android:layout_marginTop="28dp"/>
-    <TextView
-            android:text="Deadline:"
-            android:layout_width="97dp"
-            android:layout_height="37dp" android:id="@+id/assigneeToText2"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toStartOf="@+id/editTextDate"
-            app:layout_constraintHorizontal_bias="0.643" app:layout_constraintTop_toBottomOf="@+id/assigneeToText"
-            android:textAlignment="center" android:textSize="24sp" android:layout_marginTop="24dp"/>
-    <EditText
-            android:layout_width="186dp"
-            android:layout_height="48dp"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/editTextDate"
-            app:layout_constraintTop_toBottomOf="@+id/prioritySpinner2" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp" android:layout_marginEnd="56dp" tools:ignore="SpeakableTextPresentCheck"
-            android:hint="Due Date"/>
+            android:layout_width="0dp"
+            android:layout_height="51dp" android:id="@+id/prioritySpinner2"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" android:background="#FFFFFF" android:padding="5sp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="54dp"
+            android:layout_marginStart="54dp" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.426" android:textAlignment="center"/>
+    <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="298dp"
+            android:layout_height="135dp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.477" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.664"/>
     <Button
             android:text="Create"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/createBtn"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"
-            app:layout_constraintHorizontal_bias="0.839"/>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintHorizontal_bias="0.95" android:backgroundTint="#21338C" android:textColor="#FFFFFF"/>
+    <TextView
+            android:text="DeadLine"
+            android:layout_width="133dp"
+            android:layout_height="21dp" android:id="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="364dp"
+            android:textAlignment="center"/>
+    <TextView
+            android:text="Priority"
+            android:layout_width="133dp"
+            android:layout_height="21dp" android:id="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="260dp"
+            android:textAlignment="center"/>
+    <TextView
+            android:text="Assigne"
+            android:layout_width="133dp"
+            android:layout_height="21dp" android:id="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="172dp"
+            android:textAlignment="center"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

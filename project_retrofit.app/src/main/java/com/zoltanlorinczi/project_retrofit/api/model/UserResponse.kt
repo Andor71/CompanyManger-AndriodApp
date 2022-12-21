@@ -22,7 +22,7 @@ data class UserResponse(
     var location: String,
 
     @SerializedName("phone_number")
-    var phone_number: Int,
+    var phone_number: String,
 
     @SerializedName("department_id")
     var department_id: Int,
@@ -30,4 +30,8 @@ data class UserResponse(
     @SerializedName("image")
     var image: String
 
-)
+){
+    override fun toString(): String {
+        return first_name +" "+ last_name;
+    }
+}

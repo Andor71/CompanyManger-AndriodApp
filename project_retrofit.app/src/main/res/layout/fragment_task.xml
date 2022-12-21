@@ -1,22 +1,134 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.zoltanlorinczi.project_retrofit.fragment.TaskFragment">
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context="com.zoltanlorinczi.project_retrofit.fragment.TaskFragment"
+                                                   android:id="@+id/taskNameTask">
     <TextView
-            android:text="TextView"
-            android:layout_width="73dp"
-            android:layout_height="wrap_content" android:id="@+id/taskTitleDetail" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="60dp" app:layout_constraintHorizontal_bias="0.224"/>
-    <TextView
-            android:text="TextView"
+            android:text="Lorinczi Zoltan"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/TaskDescriptionDetail" tools:layout_editor_absoluteY="144dp"
-            tools:layout_editor_absoluteX="75dp"/>
+            android:layout_height="16dp" android:id="@+id/assignedByUserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.382" android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="52dp"/>
     <TextView
-            android:text="TextView"
+            android:text="4:20 Dec 23 2022"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/assignedDateDetail" tools:layout_editor_absoluteY="241dp"
-            tools:layout_editor_absoluteX="110dp"/>
+            android:layout_height="16dp" android:id="@+id/assignedDateText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@+id/assignedByUserName" android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.405"/>
+    <TextView
+            android:text="Pal Andor"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" android:id="@+id/assigneeText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@+id/assignedDateText"
+            android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.308"/>
+    <TextView
+            android:text="June 01 2023"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" android:id="@+id/assigneeText2"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.312"/>
+    <TextView
+            android:text="High"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/priotityText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@+id/assigneeText2" android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.274"
+            android:padding="5sp"/>
+    <TextView
+            android:text="fewjfiuowhefkwhfeiuwehfiuwehfiuwefuhweufhweuifhiweiufhwieufiwegiwdhiuwehwiefhiuwefiwehweufhiwyuefhiuwehfiewufhweiufhweufhw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/descriptionText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#000000"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintTop_toBottomOf="@+id/priotityText"
+            android:layout_marginTop="28dp" app:layout_constraintHorizontal_bias="0.0"/>
+    <TextView
+            android:text="Set-Up company profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/taskNameText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="16dp"
+            android:layout_marginStart="28dp" app:layout_constraintEnd_toStartOf="@+id/taskDescriptionDetail"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <TextView
+            android:text="Assigne date:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/TaskDescriptionDetail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskDescriptionDetail2" android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.088"/>
+    <TextView
+            android:text="Assignee:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/taskDescriptionDetail3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TaskDescriptionDetail" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.08"/>
+    <TextView
+            android:text="Deadline: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/taskDescriptionDetail4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.082"/>
+    <TextView
+            android:text="Priority: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/taskDescriptionDetail5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskDescriptionDetail4" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.077"/>
+    <TextView
+            android:text="Dev project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/taskDescriptionDetail"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="84dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="48dp"/>
+    <TextView
+            android:text="Assigned by:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/taskDescriptionDetail2"
+            app:layout_constraintTop_toBottomOf="@+id/taskNameText"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.084"/>
+    <TextView
+            android:text="0% Done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/assignedDateDetail"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar"
+            app:layout_constraintTop_toBottomOf="@+id/assigneeText" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="28dp" app:layout_constraintVertical_bias="1.0"/>
+    <TextView
+            android:text="Task Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="28dp"
+            app:layout_constraintHorizontal_bias="0.155" android:textSize="30sp" android:textColor="#000000"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:id="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/assigneeText" android:layout_marginTop="20dp"
+            app:layout_constraintHorizontal_bias="0.32" android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

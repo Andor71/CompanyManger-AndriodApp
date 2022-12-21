@@ -40,6 +40,11 @@ class MyProfileFragment : Fragment() {
         binding.emailText.text = usersViewModel.currentUser.value?.email;
         binding.locationText.text = usersViewModel.currentUser.value?.location;
         binding.phoneText.text = usersViewModel.currentUser.value?.phone_number.toString();
+        if(usersViewModel.currentUser.value?.id == usersViewModel.myUser.value?.id){
+            binding.editButton.visibility= View.VISIBLE;
+        }else{
+            binding.editButton.visibility= View.GONE;
+        }
         binding.editButton.setOnClickListener{
             edit();
         }
