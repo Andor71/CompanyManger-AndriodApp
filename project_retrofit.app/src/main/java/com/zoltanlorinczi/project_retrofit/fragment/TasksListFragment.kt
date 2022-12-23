@@ -1,6 +1,7 @@
 package com.zoltanlorinczi.project_retrofit.fragment
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -56,6 +57,14 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list), TasksListAdapt
         recyclerView = binding.recyclerView;
         setupRecyclerView()
         binding.preloader.visibility = View.VISIBLE;
+
+        Handler().postDelayed({
+            tasksViewModel.getTasks()
+        },
+        5000
+        )
+
+
         tasksViewModel.products.observe(viewLifecycleOwner) {
             binding.preloader.visibility = View.GONE;
             adapter.setData(tasksViewModel.products.value as ArrayList<TaskResponse>)

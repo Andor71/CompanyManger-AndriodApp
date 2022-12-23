@@ -4,31 +4,31 @@ import com.google.gson.annotations.SerializedName
 
 data class UserResponse(
     @SerializedName("ID")
-    var id: Int,
+    var id: Int = 0,
 
     @SerializedName("last_name")
-    var last_name: String,
+    var last_name: String= "",
 
     @SerializedName("first_name")
-    var first_name: String,
+    var first_name: String = "",
 
     @SerializedName("email")
-    var email: String,
+    var email: String = "",
 
     @SerializedName("type")
-    var type: Int,
+    var type: Int = 0,
 
     @SerializedName("location")
-    var location: String,
+    var location: String = "",
 
     @SerializedName("phone_number")
-    var phone_number: String,
+    var phone_number: String = "",
 
     @SerializedName("department_id")
-    var department_id: Int,
+    var department_id: Int = 0,
 
     @SerializedName("image")
-    var image: String
+    var image: String = ""
 
 ){
     override fun toString(): String {

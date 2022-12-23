@@ -59,22 +59,29 @@ class GroupFragment : Fragment(R.layout.fragment_group), UserListAdapter.OnItemC
         recyclerView = binding.recyclerViewGroupUsers;
         setupRecyclerView()
 
+
         if(userViewModel.users.value != null){
         for (item in userViewModel.users.value!!) {
             if (item.department_id == groupViewModel.ID){
                 currentUsers.add(item)
-                Log.i("Users",item.first_name)
             }
         }
         }else{
             val toast = Toast.makeText(App.context, "No User Found", Toast.LENGTH_SHORT)
             toast.show();
         }
+        if(currentUsers.isEmpty()){
+            binding.noFoundText.text = "No Users found in this Group!";
+        }else{
+            binding.noFoundText.text = "";
+        }
 
         userViewModel.users.observe(viewLifecycleOwner) {
-            Log.d(TAG, "Tasks list = $it")
             adapter.setData(currentUsers as ArrayList<UserResponse>)
             adapter.notifyDataSetChanged()
+            if(userViewModel.users.value!!.isEmpty()){
+
+            }
         }
 
         return binding.root;

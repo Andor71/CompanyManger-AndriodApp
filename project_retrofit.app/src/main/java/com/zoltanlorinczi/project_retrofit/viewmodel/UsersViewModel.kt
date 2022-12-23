@@ -70,20 +70,21 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d("USER", "Get MyUserResponse response: ${response.body()}")
+                    getMyUserIsSuccesful.value = true;
                     loggedIn.value = true;
                     val user = response.body()
                     user?.let {
                         myUser.value = user
                     }
                 } else {
+                    getMyUserIsSuccesful.value = false;
                     loggedIn.value = false;
-                    Log.d("USER", "Get tasks error response: ${response?.errorBody()}")
+                    myUser.value = UserResponse();
                 }
 
             } catch (e: Exception) {
+                getMyUserIsSuccesful.value = false;
                 loggedIn.value = false;
-                Log.d(UsersViewModel.TAG, "TasksViewModel - getTasks() failed with exception: ${e.message}")
             }
         }
 

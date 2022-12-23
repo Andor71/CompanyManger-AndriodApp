@@ -85,13 +85,16 @@ class TasksListAdapter(
 
         holder.taskTitleTextView.text = currentItem.title
         holder.taskDescriptionTextView.text = currentItem.description
-        holder.taskAssigneeView.text = currentItem.assignedToUserID.toString()
+        holder.taskAssigneeView.text = getCreatedByName(currentItem.createdByUserID);
         holder.taskDeadline.text = getDateTime(currentItem.deadline);
         if (currentItem.priority == 0) {
             holder.taskPriorityTextView.setBackgroundColor(Color.RED)
+            holder.taskPriorityTextView.text = "HIGH"
         } else if (currentItem.priority == 1) {
             holder.taskPriorityTextView.setBackgroundColor(Color.YELLOW)
+            holder.taskPriorityTextView.text = "MEDIUM"
         } else if (currentItem.priority == 2) {
+            holder.taskPriorityTextView.text = "LOW"
             holder.taskPriorityTextView.setBackgroundColor(Color.GREEN)
         }
 
@@ -112,5 +115,14 @@ class TasksListAdapter(
         } catch (e: Exception) {
             return e.toString()
         }
+    }
+
+    fun getCreatedByName(id:Int) : String{
+        for (item in usersViewModel.users.value!!){
+            if(item.id == id){
+                return item.first_name +" "+ item.last_name
+            }
+        }
+        return "None"
     }
 }

@@ -1,6 +1,7 @@
 package com.zoltanlorinczi.project_retrofit.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ import com.zoltanlorinczi.project_retrofit.viewmodel.TasksViewModel
 import com.zoltanlorinczi.project_retrofit.viewmodel.TasksViewModelFactory
 import com.zoltanlorinczi.project_retrofit.viewmodel.UsersViewModel
 import com.zoltanlorinczi.project_retrofit.viewmodel.UsersViewModelFactory
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -92,12 +94,31 @@ class NewTaskFragment : Fragment() {
         return binding.root;
     }
 
-    fun createNewTask(){
+    fun createNewTask() {
         val title = binding.taskTitle.text.toString();
         val description = binding.description.text.toString();
-        val newTask =  TaskDto(1,title,description,assigneToUser,priority, deadline.toLong(),departmentID,status);
+        val deadline = getDateTimeToSeconds();
+        val departmentID = 2;
+        val status = 0;
+
+        val newTask = TaskDto(1, title, description, assigneToUser, priority, deadline.toLong(), departmentID, status);
 
         tasksViewModel.createTask(newTask);
-        findNavController().navigate(R.id.action_newTaskFragment_to_listFragment);
+        tasksViewModel.createTaskIsSuccess.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            findNavController().navigate(R.id.action_newTaskFragment_to_listFragment);
+        })
+    }
+
+    fun getDateTimeToSeconds(): Long {
+        try {
+
+            val day = binding.datePicker1.dayOfMonth;
+            val month = binding.datePicker1.month;
+            val year = binding.datePicker1.year;
+            var date = Date(year,month,day);
+            return date.time
+        } catch (e: Exception) {
+            return 0
+        }
     }
 }

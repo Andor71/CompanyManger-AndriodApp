@@ -24,11 +24,9 @@ class TasksViewModel(private val repository: ThreeTrackerRepository) : ViewModel
     }
 
     var products: MutableLiveData<List<TaskResponse>> = MutableLiveData()
+    var createTaskIsSuccess: MutableLiveData<Boolean> = MutableLiveData();
     var ID: Int = 0;
 
-    init {
-        getTasks()
-    }
 
     public fun createTask(newTask: TaskDto){
         viewModelScope.launch {
@@ -41,22 +39,19 @@ class TasksViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                     repository.createTask(it,newTask);
                 }
                 if (response?.isSuccessful == true) {
-                    Log.d("Response", "Get tasks response: ${response.body()}")
-                    val toast = Toast.makeText(App.context, "Created a Task", Toast.LENGTH_SHORT)
-                    toast.show();
                     getTasks();
+                    createTaskIsSuccess.value = true;
                 } else {
-                    Log.d("Response", "Get tasks error response: ${response?.message()}")
-                    val toast = Toast.makeText(App.context, "Error creating a Task", Toast.LENGTH_SHORT)
-                    toast.show();
+                    createTaskIsSuccess.value = false;
+                    Log.d("Task","Error")
                 }
 
             }catch (e: Exception) {
-                Log.d("Response", "TasksViewModel - getTasks() failed with exception: ${e.message}")
-                val toast = Toast.makeText(App.context, "Error creating a Task exception", Toast.LENGTH_SHORT)
-                toast.show();
+                Log.d("Task","${e.message}")
+                createTaskIsSuccess.value = false;
             }
         }
+        createTaskIsSuccess.value = null;
     }
 
     public fun getTasks() {
@@ -71,23 +66,16 @@ class TasksViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d(TAG, "Get tasks response: ${response.body()}")
-                    val toast = Toast.makeText(App.context, "Fetched tasks", Toast.LENGTH_SHORT)
-                    toast.show();
                     val tasksList = response.body()
                     tasksList?.let {
                         products.value = tasksList
                     }
                 } else {
-                    Log.d(TAG, "Get tasks error response: ${response?.errorBody()}")
-                    val toast = Toast.makeText(App.context, "Cant Fetch tasks", Toast.LENGTH_SHORT)
-                    toast.show();
+                        products.value = emptyList();
                 }
 
             } catch (e: Exception) {
-                val toast = Toast.makeText(App.context, "Cant Fetch tasks exception", Toast.LENGTH_SHORT)
-                toast.show();
-                Log.d(TAG, "TasksViewModel - getTasks() failed with exception: ${e.message}")
+                products.value = null;
             }
         }
     }

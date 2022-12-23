@@ -19,10 +19,8 @@ class GroupViewModel(private val repository: ThreeTrackerRepository) : ViewModel
     }
 
     var groups: MutableLiveData<List<GroupResponse>> = MutableLiveData()
+    var getGroupsIsSuccess: MutableLiveData<Boolean> = MutableLiveData();
     var ID: Int = 0;
-    init {
-        fetchGroups();
-    }
 
     public fun fetchGroups(){
         viewModelScope.launch {
@@ -36,24 +34,19 @@ class GroupViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d(GroupViewModel.TAG, "Get group response: ${response.body()}")
-//                    val toast = Toast.makeText(App.context, "Fetched groups", Toast.LENGTH_SHORT)
-//                    toast.show();
+
+                    getGroupsIsSuccess.value = true;
                     val groupList = response.body()
                     groupList?.let {
                         groups.value = groupList
                     }
                 } else {
-//                    Log.d(GroupViewModel.TAG, "Get tasks error response: ${response?.errorBody()}")
-//                    val toast = Toast.makeText(App.context, "Cant Fetch Group", Toast.LENGTH_SHORT)
-//                    toast.show();
+                    getGroupsIsSuccess.value = false
                     groups.value = emptyList();
                 }
 
             } catch (e: Exception) {
-                val toast = Toast.makeText(App.context, "Cant Fetch Groups exception", Toast.LENGTH_SHORT)
-//                toast.show();
-//                Log.d(GroupViewModel.TAG, "GroupViewMOdel - getGroups() failed with exception: ${e.message}")
+                getGroupsIsSuccess.value = false;
             }
         }
     }

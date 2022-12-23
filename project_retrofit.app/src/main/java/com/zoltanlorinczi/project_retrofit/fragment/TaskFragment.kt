@@ -49,6 +49,7 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
         binding.taskNameText.text = task?.title;
         binding.descriptionText.text = task?.description;
         binding.assignedDateText.text =getDateTime(task?.createdTime!!);
+        binding.deadLineText. text = getDateTime(task?.deadline!!);
         if (task?.priority == 0) {
             binding.priotityText.setBackgroundColor(Color.RED)
             binding.priotityText.text = "HIGH";
@@ -63,7 +64,7 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
     fun getDateTime(s: Long): String {
         try {
             val sdf = SimpleDateFormat("MM/dd/yyyy")
-            val netDate = Date(s.toLong() * 1000)
+            val netDate = Date(s.toLong())
             return sdf.format(netDate)
         } catch (e: Exception) {
             return e.toString()

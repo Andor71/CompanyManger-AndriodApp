@@ -44,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.554" app:layout_constraintHorizontal_bias="0.306"/>
+            app:layout_constraintVertical_bias="0.554" app:layout_constraintHorizontal_bias="0.362"/>
     <TextView
             android:id="@+id/task_deadline_view2"
             android:layout_width="wrap_content"
@@ -66,13 +66,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.412" app:layout_constraintHorizontal_bias="0.287"
+            app:layout_constraintVertical_bias="0.285" app:layout_constraintHorizontal_bias="0.357"
             android:textColor="#000000"/>
     <TextView
             android:id="@+id/task_assignee_view2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Person ID"
+            android:text="Created by: "
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,16 +122,8 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="124dp" android:layout_marginStart="1dp"
-            app:layout_constraintHorizontal_bias="0.071"/>
-    <TextView
-            android:text="Assignee:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/assignee"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.044" app:layout_constraintVertical_bias="0.412"/>
+            android:layout_marginTop="100dp" android:layout_marginStart="1dp"
+            app:layout_constraintHorizontal_bias="0.035"/>
     <TextView
             android:text="Dev project"
             android:layout_width="wrap_content"
