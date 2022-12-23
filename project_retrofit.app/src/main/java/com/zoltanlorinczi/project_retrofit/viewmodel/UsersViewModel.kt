@@ -21,6 +21,9 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
     var currentUser: MutableLiveData<UserResponse> = MutableLiveData();
     var myUser: MutableLiveData<UserResponse> = MutableLiveData();
     var loggedIn: MutableLiveData<Boolean> = MutableLiveData();
+    var updateProfileIsSuccesful: MutableLiveData<Boolean> = MutableLiveData();
+    var getUsersIsSuccesful: MutableLiveData<Boolean> = MutableLiveData();
+    var getMyUserIsSuccesful: MutableLiveData<Boolean> = MutableLiveData();
 
     init {
         getUsers();
@@ -38,23 +41,20 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d("ResponseUser", "Get Users response: ${response.message()}")
-
-                    val toast = Toast.makeText(App.context, "Fetched Users", Toast.LENGTH_SHORT)
-                    toast.show();
+                    getUsersIsSuccesful.value = true;
                     val userList = response.body()
                     userList?.let {
                         users.value = userList
                     }
                 } else {
-
-                    val toast = Toast.makeText(App.context, "Cant Fetch Users", Toast.LENGTH_SHORT)
-                    toast.show();
-                    Log.d("ResponseUser", "Users Error Response : ${response?.message()}")
+                    getUsersIsSuccesful.value = false;
+                    users.value = emptyList();
                 }
 
             } catch (e: Exception) {
                 Log.d("ResponseUser", "UserViewmodel get users error: ${e.message}")
+                getUsersIsSuccesful.value = false;
+                users.value = emptyList();
             }
         }
     }
@@ -82,6 +82,7 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
             } catch (e: Exception) {
+                loggedIn.value = false;
                 Log.d(UsersViewModel.TAG, "TasksViewModel - getTasks() failed with exception: ${e.message}")
             }
         }
@@ -99,22 +100,21 @@ class UsersViewModel(private val repository: ThreeTrackerRepository) : ViewModel
                 }
 
                 if (response?.isSuccessful == true) {
-                    Log.d(UsersViewModel.TAG, "Get tasks response: ${response.body()}")
                     val toast = Toast.makeText(App.context, "Profile updated succesfully!", Toast.LENGTH_SHORT)
                     toast.show();
-//                    val user = response.body()
-//                    user?.let {
-//                        currentUser.value = user;
-//                    }
+                    getMyUser();
                 } else {
                     val toast = Toast.makeText(App.context, "Error updating profile", Toast.LENGTH_SHORT)
                     toast.show();
-                    Log.d(UsersViewModel.TAG, "Get tasks error response: ${response?.errorBody()}")
+                    updateProfileIsSuccesful.value =false;
                 }
 
             } catch (e: Exception) {
-                Log.d(UsersViewModel.TAG, "TasksViewModel - getTasks() failed with exception: ${e.message}")
+                val toast = Toast.makeText(App.context, "Error updating profile", Toast.LENGTH_SHORT)
+                toast.show();
+                updateProfileIsSuccesful.value = false;
             }
+            updateProfileIsSuccesful.value =null;
         }
     }
 

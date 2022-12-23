@@ -11,9 +11,11 @@
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_login.xml" value="0.2155" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_profile.xml" value="0.1" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_settings.xml" value="0.2075" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_splash_screen__2_.xml" value="0.252" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_splashscreen.xml" value="0.1" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/ic_untitled.xml" value="0.1" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/drawable/mytasks.xml" value="0.2075" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/anouncmentactivityitem.xml" value="0.23697916666666666" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/bottomnavigation.xml" value="0.2453125" />
@@ -26,10 +28,10 @@
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_my_profile.xml" value="0.25" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_new_task.xml" value="0.5" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_settings.xml" value="0.33" />
-        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_splash_screen.xml" value="0.23161551823972207" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_splash_screen.xml" value="0.4" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_task.xml" value="0.5" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_tasks_list.xml" value="0.33" />
-        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_update_profile.xml" value="0.5" />
+        <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/fragment_update_profile.xml" value="0.22" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/groups_list_item.xml" value="0.29322916666666665" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/taskactivityitem.xml" value="0.23697916666666666" />
         <entry key="..\:/Egyetem/Android/Project/project_retrofit.app/src/main/res/layout/tasks_list_item.xml" value="0.5" />

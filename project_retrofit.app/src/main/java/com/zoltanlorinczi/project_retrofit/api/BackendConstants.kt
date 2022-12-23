@@ -20,7 +20,7 @@ object BackendConstants {
     const val CREATE_TASK_URL = "task/create"
     const val GET_USERS_URL = "users"
     const val GET_MY_USER = "user"
-    const val UPDATE_MY_USER ="user/updateProfile"
+    const val UPDATE_MY_USER ="/users/updateProfile"
     const val GET_GROUPS="department"
     const val GET_ACTIVITES ="/activity/getActivities"
     /**

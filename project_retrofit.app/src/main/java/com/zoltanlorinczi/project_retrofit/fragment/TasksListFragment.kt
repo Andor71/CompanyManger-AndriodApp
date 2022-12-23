@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zoltanlorinczi.project_retorfit.R
 import com.zoltanlorinczi.project_retorfit.databinding.FragmentTasksListBinding
-import com.zoltanlorinczi.project_retrofit.adapter.GroupsListAdapter
 import com.zoltanlorinczi.project_retrofit.adapter.TasksListAdapter
 import com.zoltanlorinczi.project_retrofit.api.ThreeTrackerRepository
 import com.zoltanlorinczi.project_retrofit.api.model.TaskResponse
@@ -56,9 +55,9 @@ class TasksListFragment : Fragment(R.layout.fragment_tasks_list), TasksListAdapt
         binding = FragmentTasksListBinding.inflate(inflater);
         recyclerView = binding.recyclerView;
         setupRecyclerView()
-
+        binding.preloader.visibility = View.VISIBLE;
         tasksViewModel.products.observe(viewLifecycleOwner) {
-            Log.d(TAG, "Tasks list = $it")
+            binding.preloader.visibility = View.GONE;
             adapter.setData(tasksViewModel.products.value as ArrayList<TaskResponse>)
             adapter.notifyDataSetChanged()
         }
