@@ -2,4 +2,4 @@
 
 University project.
 
-Working aAndroid application, where companies can manage ther workers.
+Working Android application, where companies can manage their workers.
